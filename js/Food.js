@@ -2,9 +2,33 @@ class Food
 {
     constructor()
     {
-        var foodStock;
+        this.foodStock = 0;
+        this.lastFed;
         this.image = loadImage("Images/Milk.png");
         //World.add(world, this.image);
+    }
+
+    updateFoodStock(foodStock)
+    {
+        this.foodStock = foodStock;
+    }
+
+    deductFood()
+    {
+        if(this.foodStock > 0)
+        {
+            this.foodStock = this.foodStock - 1;
+        }
+    }
+
+    getFoodStock()
+    {
+        return this.foodStock;
+    }
+
+    getFedTime(lastFed)
+    {
+        this.lastFed = lastFed;
     }
     
 
@@ -19,7 +43,7 @@ class Food
             {
             for(var i = 0; i < this.foodStock;i++)
             {
-                if(i % 100 == 0)
+                if(i % 10 == 0)
             {
                 x = 80;
                 y = y + 50;
